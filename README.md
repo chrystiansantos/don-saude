@@ -34,4 +34,5 @@ A seguir, siga um dos tutoriais para executar o projeto.
 - [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
 - [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
 - [Expo Go](https://expo.dev/go)
+
 https://github.com/user-attachments/assets/0aaf4ed6-382c-4ec6-82fc-d1e033c3b2a0
