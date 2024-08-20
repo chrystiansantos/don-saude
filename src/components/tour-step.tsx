@@ -1,9 +1,10 @@
 import clsx from 'clsx'
 import { router, usePathname } from 'expo-router'
 import { CaretRight } from 'phosphor-react-native'
-import { TouchableOpacity, View } from 'react-native'
+import { View } from 'react-native'
 import { red } from 'tailwindcss/colors'
 import { ROUTES_TOUR } from '../enum'
+import { CircleButton } from './circle-button'
 
 export function TourStep() {
   const pathname = usePathname() as '/' | '/access' | '/get-started'
@@ -16,7 +17,7 @@ export function TourStep() {
       case '/access':
         return router.navigate('/(tour)/get-started')
       case '/get-started':
-        return router.navigate('/login')
+        return router.navigate('/(auth)/register/login')
       default:
         break
     }
@@ -35,14 +36,9 @@ export function TourStep() {
           />
         ))}
       </View>
-
-      <TouchableOpacity
-        activeOpacity={0.7}
-        className="h-14 w-14 items-center justify-center rounded-full bg-white"
-        onPress={handleNavigate}
-      >
+      <CircleButton onPress={handleNavigate}>
         <CaretRight size={24} color={red[800]} />
-      </TouchableOpacity>
+      </CircleButton>
     </View>
   )
 }
