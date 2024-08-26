@@ -1,8 +1,8 @@
 import { Header } from '@/src/components/header'
 import { TourStep } from '@/src/components/tour-step'
 import { Slot, usePathname } from 'expo-router'
-import { SafeAreaView, View } from 'react-native'
-import { SafeAreaProvider } from 'react-native-safe-area-context'
+import { View } from 'react-native'
+import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context'
 
 const ROUTES_TOUR = {
   '/': 0,
