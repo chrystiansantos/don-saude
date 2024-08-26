@@ -17,7 +17,7 @@ export function TourStep() {
       case '/access':
         return router.navigate('/(tour)/get-started')
       case '/get-started':
-        return router.navigate('/(auth)/register/login')
+        return router.navigate('/(auth)/login')
       default:
         break
     }
