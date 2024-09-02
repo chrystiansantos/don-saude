@@ -2,7 +2,7 @@ import LogoDark from '@/src/assets/logo-dark.svg'
 import LogoLight from '@/src/assets/logo-light.svg'
 
 import { clsx } from 'clsx'
-import { router } from 'expo-router'
+import { router, usePathname } from 'expo-router'
 import { CaretLeft } from 'phosphor-react-native'
 import React from 'react'
 import { TouchableOpacity, View } from 'react-native'
@@ -20,14 +20,20 @@ const theme = {
 }
 
 interface HeaderProps {
-  showNavigateBack?: boolean
   headerTheme?: keyof typeof theme
 }
 
-export function Header({
-  showNavigateBack = true,
-  headerTheme = 'light',
-}: HeaderProps) {
+const ROUTES_TOUR = {
+  '/': 0,
+  '/access': 1,
+  '/get-started': 2,
+}
+
+export function Header({ headerTheme = 'light' }: HeaderProps) {
+  const pathname = usePathname() as '/' | '/access' | '/get-started'
+  const indexTour = ROUTES_TOUR[pathname]
+  const showNavigateBack = indexTour !== 0
+
   return (
     <View
       className={clsx(
