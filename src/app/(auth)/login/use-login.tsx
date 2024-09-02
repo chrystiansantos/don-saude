@@ -1,4 +1,4 @@
-import { authenticate } from '@/src/http/login'
+import { useSession } from '@/src/providers/auth'
 import { loginSchema, LoginTypes } from '@/src/schema-validations'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { router } from 'expo-router'
@@ -12,16 +12,17 @@ export function useLogin() {
     formState: { isValid },
   } = useForm<LoginTypes>({
     values: {
-      login: 'tiao_bruto@gmail.com',
-      password: '12345678',
+      login: '',
+      password: '',
     },
     resolver: zodResolver(loginSchema),
   })
+  const { signIn } = useSession()
 
   async function login({ login, password }: LoginTypes) {
     try {
-      await authenticate({ login, password })
-      router.navigate('/autheticated/(tabs)')
+      await signIn({ login, password })
+      router.navigate('/(app)/(tabs)')
     } catch (error) {
       Alert.alert(
         'Credenciais invalidas',

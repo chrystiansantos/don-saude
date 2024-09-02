@@ -29,5 +29,6 @@ export async function createUser(
     body: JSON.stringify(user),
   })
   const data = await response.json()
+  if (data.error === 'Bad Request') throw new Error(data.message)
   return data
 }

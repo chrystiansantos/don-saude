@@ -10,6 +10,7 @@ import { useEffect } from 'react'
 import 'react-native-reanimated'
 
 import { StatusBar } from 'react-native'
+import { SessionProvider } from '../providers/auth'
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync()
@@ -32,9 +33,9 @@ export default function RootLayout() {
   }
 
   return (
-    <>
+    <SessionProvider>
       <StatusBar barStyle="light-content" />
       <Slot />
-    </>
+    </SessionProvider>
   )
 }

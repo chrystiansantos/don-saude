@@ -5,7 +5,7 @@ interface AuthenticateRequest {
 
 interface AuthenticateResponse {
   id: string
-  token: string
+  access_token: string
 }
 
 const BASE_URL = 'https://don-saude-server-dev-e347759d6bc1.herokuapp.com'

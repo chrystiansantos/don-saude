@@ -1,4 +1,5 @@
-import { Tabs } from 'expo-router'
+import { useSession } from '@/src/providers/auth'
+import { Redirect, Tabs } from 'expo-router'
 import {
   CalendarBlank,
   House,
@@ -6,8 +7,19 @@ import {
   User,
   Windmill,
 } from 'phosphor-react-native'
+import { Text } from 'react-native'
 
 export default function HomeLayout() {
+  const { session, isLoading } = useSession()
+
+  if (isLoading) {
+    return <Text>Loading...</Text>
+  }
+
+  if (!session) {
+    return <Redirect href="/(tour)" />
+  }
+
   return (
     <Tabs
       screenOptions={{
