@@ -35,4 +35,4 @@ A seguir, siga um dos tutoriais para executar o projeto.
 - [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
 - [Expo Go](https://expo.dev/go)
 
-https://github.com/user-attachments/assets/0aaf4ed6-382c-4ec6-82fc-d1e033c3b2a0
+https://github.com/user-attachments/assets/b6cd9928-bba5-4426-a3ca-93ffe306b19a
